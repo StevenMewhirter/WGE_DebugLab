@@ -13,6 +13,13 @@ public class LerpCubeScript : MonoBehaviour {
         _cube.transform.position = _leftPosition;
         StartCoroutine(LerpCube());
     }
+    public override string ToString()
+    {
+        string s;
+        s = (_cube ? "Cube positon = " + _cube.transform.position : "Cube not instantiated ") + "\n"
++ "Left Position = " + _leftPosition + "\n" + "Right Poistion = " + _rightPosition;
+        return s;
+    }
 
     IEnumerator LerpCube()
     {
@@ -29,8 +36,12 @@ public class LerpCubeScript : MonoBehaviour {
             }
             yield return null;
         }
+
     }
 
-    //inseert code here:
-
+    public void PrintDebugString()
+    {
+        Debug.Log(this.ToString());
+    }
+   
 }
