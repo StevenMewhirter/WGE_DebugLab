@@ -30,10 +30,14 @@ public class LerpCubeScript : MonoBehaviour {
             t += Time.deltaTime;
             Debug.Log(t);
             _cube.transform.position = Vector3.Lerp(_leftPosition, _rightPosition, t);
-            if(t >=1)
+            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch.Start();
+            if (t >=1)
             {
                 _cube.transform.position = _rightPosition;
             }
+            stopWatch.Stop();
+            Debug.Log("Time taken: " + (stopWatch.Elapsed));
             yield return null;
         }
 
